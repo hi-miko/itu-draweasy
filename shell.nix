@@ -6,14 +6,12 @@ pkgs.mkShell
 	buildInputs = with pkgs;
 	[
         gtkmm4
-        gtk4
         pkg-config
         meson
         ninja
         # hell spawn
         cambalache
         colordiff
-        obs-studio
 	];
 	
 	hardeningDisable = ["all"];
