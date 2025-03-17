@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.90.4 -->
+<interface>
+  <!-- interface-name test.ui -->
+  <requires lib="gio" version="2.0"/>
+  <requires lib="gtk" version="4.12"/>
+  <object class="GtkWindow" id="mainWin">
+    <property name="default-height">800</property>
+    <property name="default-width">600</property>
+    <property name="icon-name">application-rnote</property>
+    <property name="title">Draw App</property>
+    <child>
+      <object class="GtkBox" id="windowBox">
+        <child>
+          <object class="GtkBox" id="leftBar">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkFrame">
+                <child>
+                  <object class="GtkMenuButton">
+                    <property name="direction">none</property>
+                    <property name="height-request">30</property>
+                    <property name="margin-bottom">5</property>
+                    <property name="margin-end">10</property>
+                    <property name="margin-start">10</property>
+                    <property name="margin-top">5</property>
+                    <property name="popover">
+                      <object class="GtkPopoverMenu">
+                        <property name="has-arrow">False</property>
+                        <property name="menu-model">mainMenu</property>
+                      </object>
+                    </property>
+                    <property name="width-request">50</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="toolBox">
+                <property name="halign">center</property>
+                <property name="margin-bottom">50</property>
+                <property name="margin-end">20</property>
+                <property name="margin-start">20</property>
+                <property name="margin-top">50</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">15</property>
+                <property name="vexpand">True</property>
+                <child>
+                  <object class="GtkToggleButton" id="penTog">
+                    <property name="has-tooltip">True</property>
+                    <property name="height-request">50</property>
+                    <property name="icon-name">tool-paintbrush-symbolic</property>
+                    <property name="margin-end">15</property>
+                    <property name="margin-start">15</property>
+                    <property name="margin-top">15</property>
+                    <property name="name">penTog</property>
+                    <property name="tooltip-text">pen tool for drawing</property>
+                    <property name="width-request">50</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="eraserTog">
+                    <property name="has-tooltip">True</property>
+                    <property name="height-request">50</property>
+                    <property name="icon-name">tool-eraser-symbolic</property>
+                    <property name="margin-end">15</property>
+                    <property name="margin-start">15</property>
+                    <property name="name">eraserTog</property>
+                    <property name="tooltip-text">eraser for removing drawn content</property>
+                    <property name="width-request">50</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="clearButn">
+                    <property name="has-tooltip">True</property>
+                    <property name="height-request">50</property>
+                    <property name="icon-name">tool-colorpicker-symbolic</property>
+                    <property name="margin-end">15</property>
+                    <property name="margin-start">15</property>
+                    <property name="name">clearButn</property>
+                    <property name="tooltip-text">clear the whole canvas</property>
+                    <property name="width-request">50</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="polygonTog">
+                    <property name="has-tooltip">True</property>
+                    <property name="height-request">50</property>
+                    <property name="icon-name">tool-colorpicker-symbolic</property>
+                    <property name="margin-end">15</property>
+                    <property name="margin-start">15</property>
+                    <property name="name">polygonTog</property>
+                    <property name="tooltip-text">enables drawing of shapes</property>
+                    <property name="width-request">50</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="workspaceBox">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkBox" id="colorBox">
+                <property name="halign">center</property>
+                <property name="hexpand">True</property>
+                <property name="margin-bottom">10</property>
+                <property name="margin-end">50</property>
+                <property name="margin-start">50</property>
+                <property name="margin-top">10</property>
+                <property name="spacing">15</property>
+                <property name="valign">center</property>
+                <child>
+                  <object class="GtkBox" id="mainColorsBox">
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkDrawingArea" id="colorSwitchArrow">
+                        <property name="height-request">25</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkFrame" id="mainColorFrame">
+                        <child>
+                          <object class="GtkBox" id="twoColorBox">
+                            <property name="valign">center</property>
+                            <child>
+                              <object class="GtkDrawingArea" id="colorPrimary">
+                                <property name="height-request">45</property>
+                                <property name="margin-bottom">5</property>
+                                <property name="margin-end">2</property>
+                                <property name="margin-start">5</property>
+                                <property name="margin-top">5</property>
+                                <property name="valign">center</property>
+                                <property name="width-request">45</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkDrawingArea" id="colorSecondary">
+                                <property name="height-request">45</property>
+                                <property name="margin-bottom">5</property>
+                                <property name="margin-end">5</property>
+                                <property name="margin-start">2</property>
+                                <property name="margin-top">5</property>
+                                <property name="valign">center</property>
+                                <property name="width-request">45</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkDrawingArea" id="color1">
+                    <property name="height-request">45</property>
+                    <property name="margin-bottom">15</property>
+                    <property name="margin-start">30</property>
+                    <property name="margin-top">15</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">45</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkDrawingArea" id="color2">
+                    <property name="height-request">45</property>
+                    <property name="margin-bottom">15</property>
+                    <property name="margin-top">15</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">45</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkDrawingArea" id="color3">
+                    <property name="height-request">45</property>
+                    <property name="margin-bottom">15</property>
+                    <property name="margin-top">15</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">45</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkDrawingArea" id="color4">
+                    <property name="height-request">45</property>
+                    <property name="margin-bottom">15</property>
+                    <property name="margin-top">15</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">45</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkDrawingArea" id="color5">
+                    <property name="height-request">45</property>
+                    <property name="margin-bottom">15</property>
+                    <property name="margin-top">15</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">45</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkDrawingArea" id="color6">
+                    <property name="height-request">45</property>
+                    <property name="margin-bottom">15</property>
+                    <property name="margin-top">15</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">45</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="colorSelectMenu">
+                    <property name="has-tooltip">True</property>
+                    <property name="height-request">45</property>
+                    <property name="icon-name">tool-gradient-colormode-color-symbolic</property>
+                    <property name="margin-bottom">15</property>
+                    <property name="margin-start">30</property>
+                    <property name="margin-top">15</property>
+                    <property name="tooltip-text">open color chooser dialog</property>
+                    <property name="valign">center</property>
+                    <property name="width-request">45</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkFrame" id="drawWinFrame">
+                <child>
+                  <object class="GtkDrawingArea" id="drawWin">
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <menu id="mainMenu">
+    <item>
+      <attribute name="action">app.importAct</attribute>
+      <attribute name="label">import</attribute>
+    </item>
+    <submenu id="h5">
+      <attribute name="label">export</attribute>
+      <item>
+        <attribute name="action">app.exportAllAct</attribute>
+        <attribute name="label">export all</attribute>
+      </item>
+      <item>
+        <attribute name="action">app.exportVisibleAct</attribute>
+        <attribute name="label">export currently visible</attribute>
+      </item>
+    </submenu>
+  </menu>
+  <object class="GtkPopover" id="penTogMenu">
+    <property name="autohide">False</property>
+    <property name="child">
+      <object class="GtkFrame">
+        <property name="child">penSpin</property>
+        <property name="width-request">50</property>
+        <child>
+          <object class="GtkSpinButton" id="penSpin">
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">1.0</property>
+                <property name="page-increment">5.0</property>
+                <property name="step-increment">1.0</property>
+                <property name="upper">50.0</property>
+                <property name="value">5.0</property>
+              </object>
+            </property>
+            <property name="climb-rate">1.0</property>
+            <property name="editing-canceled">True</property>
+            <property name="numeric">True</property>
+            <property name="orientation">vertical</property>
+          </object>
+        </child>
+      </object>
+    </property>
+    <property name="halign">start</property>
+    <property name="position">right</property>
+  </object>
+  <object class="GtkPopover" id="eraserTogMenu">
+    <property name="autohide">False</property>
+    <property name="child">
+      <object class="GtkFrame">
+        <property name="child">eraserSpin</property>
+        <property name="width-request">50</property>
+        <child>
+          <object class="GtkSpinButton" id="eraserSpin">
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">1.0</property>
+                <property name="page-increment">10.0</property>
+                <property name="step-increment">10.0</property>
+                <property name="upper">100.0</property>
+                <property name="value">50.0</property>
+              </object>
+            </property>
+            <property name="climb-rate">1.0</property>
+            <property name="editing-canceled">True</property>
+            <property name="numeric">True</property>
+            <property name="orientation">vertical</property>
+          </object>
+        </child>
+      </object>
+    </property>
+    <property name="halign">start</property>
+    <property name="position">right</property>
+  </object>
+  <object class="GtkPopover" id="polygonTogMenu">
+    <property name="autohide">False</property>
+    <property name="child">
+      <object class="GtkFrame">
+        <property name="width-request">50</property>
+        <child>
+          <object class="GtkBox">
+            <child>
+              <object class="GtkSpinButton" id="penSpin_2">
+                <property name="adjustment">
+                  <object class="GtkAdjustment">
+                    <property name="lower">1.0</property>
+                    <property name="page-increment">5.0</property>
+                    <property name="step-increment">1.0</property>
+                    <property name="upper">50.0</property>
+                    <property name="value">5.0</property>
+                  </object>
+                </property>
+                <property name="climb-rate">1.0</property>
+                <property name="editing-canceled">True</property>
+                <property name="numeric">True</property>
+                <property name="orientation">vertical</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkToggleButton" id="polygonSquare">
+                    <property name="accessible-role">navigation</property>
+                    <property name="has-tooltip">True</property>
+                    <property name="height-request">50</property>
+                    <property name="icon-name">tool-paintbrush-symbolic</property>
+                    <property name="margin-bottom">5</property>
+                    <property name="margin-start">15</property>
+                    <property name="margin-top">10</property>
+                    <property name="name">penTog</property>
+                    <property name="tooltip-text">draws rectangles</property>
+                    <property name="width-request">50</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="polygonElipse">
+                    <property name="has-tooltip">True</property>
+                    <property name="height-request">50</property>
+                    <property name="icon-name">tool-paintbrush-symbolic</property>
+                    <property name="margin-bottom">10</property>
+                    <property name="margin-start">15</property>
+                    <property name="margin-top">5</property>
+                    <property name="name">penTog</property>
+                    <property name="tooltip-text">draws circles</property>
+                    <property name="width-request">50</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="polygonLine">
+                <property name="halign">center</property>
+                <property name="has-tooltip">True</property>
+                <property name="height-request">50</property>
+                <property name="icon-name">tool-paintbrush-symbolic</property>
+                <property name="margin-bottom">10</property>
+                <property name="margin-end">15</property>
+                <property name="margin-start">15</property>
+                <property name="margin-top">10</property>
+                <property name="name">penTog</property>
+                <property name="tooltip-text">draws lines</property>
+                <property name="valign">center</property>
+                <property name="width-request">50</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+    <property name="halign">start</property>
+    <property name="position">right</property>
+  </object>
+</interface>

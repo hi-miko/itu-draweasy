@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <gresource prefix="">
+        <file compressed="true">ui/icons/scalable/actions/application-main-icon.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/cog.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/palette.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/subtool-circle.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/subtool-square.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/subtool-line.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/tool-clean.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/tool-eraser.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/tool-paintbrush.svg</file>
+        <file compressed="true">ui/icons/scalable/actions/tool-polygon.svg</file>
+    </gresource>
+</gresources>
